@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MCP Minecraft 控制面板</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        h1 { color: #2d7a2d; }
+        .section { margin-bottom: 2em; }
+        .label { font-weight: bold; }
+        ul { padding-left: 1.5em; }
+    </style>
+</head>
+<body>
+    <h1>MCP Minecraft 控制面板</h1>
+    <div class="section">
+        <span class="label">服务器状态：</span> <span th:text="${status}"></span><br>
+        <span class="label">在线玩家：</span> <span th:text="${players}"></span> / <span th:text="${maxPlayers}"></span><br>
+        <span class="label">MOTD：</span> <span th:text="${motd}"></span>
+    </div>
+    <div class="section">
+        <span class="label">已安装插件：</span>
+        <ul>
+            <li th:each="p : ${plugins}" th:text="${p}"></li>
+        </ul>
+    </div>
+    <div class="section">
+        <span class="label">备份列表：</span>
+        <ul>
+            <li th:each="b : ${backups}" th:text="${b}"></li>
+        </ul>
+    </div>
+</body>
+</html> 
