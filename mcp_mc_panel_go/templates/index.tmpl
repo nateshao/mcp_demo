@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MCP Minecraft 控制面板</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        h1 { color: #2d7a2d; }
+        .section { margin-bottom: 2em; }
+        .label { font-weight: bold; }
+        ul { padding-left: 1.5em; }
+    </style>
+</head>
+<body>
+    <h1>MCP Minecraft 控制面板</h1>
+    <div class="section">
+        <span class="label">服务器状态：</span> {{.status}}<br>
+        <span class="label">在线玩家：</span> {{.players}} / {{.max_players}}<br>
+        <span class="label">MOTD：</span> {{.motd}}
+    </div>
+    <div class="section">
+        <span class="label">已安装插件：</span>
+        <ul>
+            {{range .plugins}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </div>
+    <div class="section">
+        <span class="label">备份列表：</span>
+        <ul>
+            {{range .backups}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+    </div>
+</body>
+</html> 
